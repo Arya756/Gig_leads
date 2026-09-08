@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WhatsApp AI Agent - Fiverr Gig by Ayush Aryan</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Montserrat', -apple-system, sans-serif;
+    background: #1a1a2e;
+    color: #fff;
+    padding: 30px 16px 60px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+
+  .section-label {
+    color: #FFDB58;
+    font-size: 13px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    margin: 0 0 14px 8px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 2px;
+    background: linear-gradient(to right, #FFDB58, transparent);
+  }
+
+  .hero {
+    background: #ffffff; color: #1A1A2E;
+    border-radius: 18px; padding: 48px 48px 44px;
+    margin-bottom: 30px; position: relative; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .hero-tag {
+    display: inline-block; background: #FFDB58; color: #1A1A2E;
+    padding: 6px 16px; border-radius: 22px;
+    font-size: 12px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 52px; font-weight: 900; line-height: 1.05;
+    letter-spacing: -0.02em; color: #1A1A2E; margin-bottom: 12px;
+  }
+  .hero h1 .hl { color: #8A6D00; }
+  .hero .sub {
+    font-size: 17px; font-weight: 500; color: #5b5b6b;
+    max-width: 720px; margin-bottom: 18px;
+  }
+  .hero .hookline {
+    font-size: 17px; font-weight: 700; color: #1A1A2E;
+    line-height: 1.45;
+    background: linear-gradient(135deg, #fbf8ec, #fff3c4);
+    border-left: 4px solid #FFDB58;
+    padding: 14px 18px; border-radius: 10px; max-width: 720px;
+  }
+
+  .section {
+    background: #ffffff; color: #1A1A2E;
+    border-radius: 18px; padding: 36px 40px 40px;
+    margin-bottom: 26px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .section h2 {
+    font-size: 32px; font-weight: 900; line-height: 1.05;
+    letter-spacing: -0.02em; color: #1A1A2E; margin-bottom: 14px;
+  }
+  .section p { font-size: 15px; color: #2c2c3a; margin-bottom: 10px; line-height: 1.55; }
+  .section p.lead-p { font-size: 18px; font-weight: 700; color: #1A1A2E; margin-bottom: 14px; }
+
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .pill {
+    background: #1A1A2E; color: #FFDB58;
+    padding: 8px 16px; border-radius: 22px;
+    font-size: 13px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  /* Fiverr CTA card */
+  .fiverr-cta {
+    background: #1A1A2E; color: #FFDB58;
+    border-radius: 16px; padding: 32px 36px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    margin-bottom: 26px;
+  }
+  .fiverr-cta .icon { font-size: 48px; flex-shrink: 0; }
+  .fiverr-cta .text { flex: 1; min-width: 240px; }
+  .fiverr-cta .text b { font-size: 20px; color: #fff; display: block; margin-bottom: 4px; }
+  .fiverr-cta .text p { font-size: 14px; color: #ccc; margin: 0; }
+  .fiverr-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #FFDB58; color: #1A1A2E;
+    font-weight: 800; padding: 16px 28px; border-radius: 30px;
+    text-decoration: none; font-size: 15px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: transform 0.15s; flex-shrink: 0;
+  }
+  .fiverr-btn:hover { transform: translateY(-2px); }
+  .fiverr-btn i { font-size: 18px; }
+
+  /* Pricing table */
+  .pkg-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+  .pkg-table th, .pkg-table td { text-align: left; padding: 11px 14px; border-bottom: 1px solid #ece6c8; }
+  .pkg-table th { background: #1A1A2E; color: #FFDB58; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 800; }
+  .pkg-table th:first-child, .pkg-table td:first-child { background: #fbf8ec; }
+  .pkg-table td.amt { font-weight: 800; color: #1A1A2E; white-space: nowrap; }
+
+  .pkg-note { font-size: 13px; color: #5b5b6b; margin-top: 10px; font-style: italic; }
+
+  /* Feature list */
+  .feat-list { list-style: none; padding: 0; font-size: 14px; color: #2c2c3a; line-height: 1.6; }
+  .feat-list li { padding: 6px 0 6px 24px; position: relative; }
+  .feat-list li::before { content: '✓'; position: absolute; left: 0; color: #FFDB58; font-weight: 900; }
+
+  /* Problem highlight box */
+  .problem-box {
+    background: linear-gradient(135deg, #fff3c4, #fbf8ec);
+    border: 2px solid #FFDB58;
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 16px 0;
+  }
+  .problem-box p { font-size: 15px; color: #1A1A2E; margin-bottom: 8px; line-height: 1.55; font-weight: 500; }
+  .problem-box p:last-child { margin-bottom: 0; }
+  .problem-box .stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .problem-box .stat {
+    background: #1A1A2E; color: #FFDB58;
+    padding: 10px 16px; border-radius: 10px;
+    text-align: center; flex: 1; min-width: 120px;
+  }
+  .problem-box .stat .num { font-size: 28px; font-weight: 900; line-height: 1; }
+  .problem-box .stat .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; opacity: 0.9; }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 10px; }
+  .step { background: #fbf8ec; border: 2px solid #FFDB58; border-radius: 14px; padding: 18px 16px; text-align: center; }
+  .step .n { width: 32px; height: 32px; background: #1A1A2E; color: #FFDB58; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 16px; margin: 0 auto 10px; }
+  .step h4 { font-size: 14px; font-weight: 800; color: #1A1A2E; margin-bottom: 6px; }
+  .step p { font-size: 12.5px; color: #5b5b6b; margin: 0; line-height: 1.4; }
+
+  /* FAQ */
+  .faq { font-size: 14px; color: #2c2c3a; line-height: 1.6; }
+  .faq li { margin-bottom: 12px; }
+  .faq b { color: #1A1A2E; }
+
+  .band {
+    position: relative; background: #FFDB58; color: #1A1A2E;
+    border-radius: 18px; padding: 30px 40px; margin-top: 30px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .band .who b { font-size: 20px; font-weight: 900; letter-spacing: -0.01em; }
+  .band .who { font-size: 14px; font-weight: 700; }
+  .band .who a { color: #1A1A2E; text-decoration: none; font-size: 13px; opacity: 0.85; }
+
+  @media (max-width: 768px) {
+    body { padding: 16px 8px 40px; }
+    .hero, .section, .band { padding: 24px 20px; }
+    .hero h1, .section h2 { font-size: 30px; }
+    .hero .hookline, .section p.lead-p { font-size: 15px; }
+    .steps { grid-template-columns: 1fr; }
+    .fiverr-cta { flex-direction: column; text-align: center; }
+    .band { flex-direction: column; text-align: center; }
+    .pkg-table { font-size: 12px; }
+    .pkg-table th, .pkg-table td { padding: 8px 6px; }
+  }
+</style>
+</head>
+<body><div class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="hero-tag">WhatsApp AI Agent - Fiverr Gig</div>
+    <h1>I will build an AI WhatsApp agent<br>for your business that converts leads 24/7</h1>
+    <p class="sub">A smart assistant inside your WhatsApp Business number. Replies in 5 seconds. Books appointments. Answers FAQs. Never sleeps.</p>
+    <div class="hookline">Your customers are on WhatsApp. If you do not reply in seconds, you are losing the lead to a competitor who does.</div>
+  </div>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <div class="section">
+    <div class="section-label">The Real Problem</div>
+    <h2>Every gym is losing leads every day</h2>
+    <p class="lead-p">Not because the gym is bad. Because nobody answered the question at the right time.</p>
+
+    <p>Picture this. It is 11am on a Tuesday. You are in the middle of a full session with 15 members. Your phone is in your locker, on silent. On WhatsApp, a potential customer just sent you a message:</p>
+
+    <div class="problem-box">
+      <p>"Hi, do you have a free trial pass? I want to join this week."</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">3 hours</div><div class="label">Later, you see it</div></div>
+        <div class="stat"><div class="num">0 replies</div><div class="label">From you, in that time</div></div>
+        <div class="stat"><div class="num">1 competitor</div><div class="label">Who answered first</div></div>
+      </div>
+      <p>They needed a reply in minutes. You gave them nothing for three hours. By the time you finally saw the message and typed back, they had already joined the gym down the road.</p>
+    </div>
+
+    <p>This happens every single day. Not once. Dozens of times. Here is what a typical gym owner deals with:</p>
+
+    <ul class="feat-list">
+      <li><b>The after-hours lead.</b> Someone messages at 8pm asking about fees. You are at home, eating dinner, phone on silent. Next morning you reply. They are gone.</li>
+      <li><b>The in-session lead.</b> You are mid-workout with a client. Phone buzzes. You ignore it. The message sits unread for hours. Dead lead.</li>
+      <li><b>The weekend gap.</b> Saturday morning, 10am. Someone wants to book a trial. You are busy. Nobody is at the desk. The message gets no reply until Monday. Too late.</li>
+      <li><b>The same questions, over and over.</b> "What are your timings?" "How much is the monthly fee?" "Do you have parking?" Your front desk answers the same 10 questions 50 times a week. That is hours of paid time going nowhere.</li>
+    </ul>
+
+    <div class="problem-box">
+      <p>The brutal truth: most gyms do not lose members because of price or quality. They lose them because they did not reply fast enough. The customer had options. You were slow. They picked the other gym.</p>
+    </div>
+
+    <p>And the worst part? You never even know you lost them. The message came. You did not see it. They moved on. No goodbye. No feedback. Just a quiet dead lead that you will never count.</p>
+  </div>
+
+  <!-- ============ THE SOLUTION ============ -->
+  <div class="section">
+    <div class="section-label">The Solution</div>
+    <h2>How I can fix this for you</h2>
+    <p class="lead-p">I can build a WhatsApp AI agent that answers every lead in 5 seconds, any time of day, with your own voice and your own offers.</p>
+
+    <p>Here is what the agent does for your gym, in plain terms:</p>
+
+    <div class="problem-box" style="text-align:left;">
+      <p><b>1. It replies instantly, 24/7.</b> A customer messages at 2am. The agent replies in 5 seconds. Not 3 hours later. Not next morning. Five seconds. The lead stays warm.</p>
+      <p><b>2. It answers your actual questions.</b> You give me your timings, your prices, your FAQ list, your trainers, your offers. The agent learns all of it. When a customer asks "What are your timings?", the agent gives your real timings, not a generic answer.</p>
+      <p><b>3. It books trials on your calendar.</b> The customer wants a trial. The agent checks your Google Calendar, finds a free slot, confirms it with the customer, and adds it. No double booking. No you forgetting to do it later.</p>
+      <p><b>4. It handles follow-up questions.</b> The customer asks about parking. Then about what to wear. Then about which trainer to pick. The agent handles all of it in one conversation, like a real front-desk person would.</p>
+      <p><b>5. It speaks the customer's language.</b> English or Hindi. The agent replies in whatever language the customer writes in. More leads covered, fewer lost to language gaps.</p>
+      <p><b>6. It hands off to you when needed.</b> If the conversation gets complex or the customer wants to talk to a human, the agent tells them you will reply soon and pings you on WhatsApp. You stay in control. You step in only when it matters.</p>
+      <p><b>7. You see everything that happens.</b> Every conversation, every question, every trial booked. All of it gets logged in a Google Sheet that you can open any time. You know exactly how many leads the agent handled and how many turned into trials.</p>
+    </div>
+
+    <p>The result is simple. The leads that used to die because you were busy or asleep now get answered in 5 seconds. Your front desk stops wasting time on the same 10 questions 50 times a week. And your gym gets more members because you are the one who replied first, every time.</p>
+
+    <div class="problem-box">
+      <p>I am not selling you a chatbot. I am selling you a 24/7 front desk that never asks for a salary, never takes a day off, and never misses a lead.</p>
+    </div>
+  </div>
+
+  <!-- ============ FIVERR CTA ============ -->
+  <div class="fiverr-cta">
+    <div class="icon"><i class="fa-brands fa-fiverr" style="font-size:52px;"></i></div>
+    <div class="text">
+      <b>Available now on Fiverr</b>
+      <p>Three packages. Delivery in 3 to 7 days. Source code included. Message me before ordering. I will map your lead flow first.</p>
+    </div>
+    <a class="fiverr-btn" href="https://www.fiverr.com/arya17_excel/build-an-ai-whatsapp-agent-for-your-business-that-converts-leads-24-7" target="_blank" rel="noopener">
+      <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit on Fiverr
+    </a>
+  </div>
+
+  <!-- ============ WHAT THIS GIG DOES ============ -->
+  <div class="section">
+    <div class="section-label">What This Gig Does</div>
+    <h2>An AI assistant that lives in your WhatsApp</h2>
+    <p class="lead-p">It talks to your customers the way you would. Day or night.</p>
+    <p>It books trial sessions, answers the same 10 questions you get every day, and only bothers you when a real human needs to step in. It runs on your existing WhatsApp Business number. Nothing for your customers to download, nothing for them to learn.</p>
+    <div class="pills">
+      <span class="pill">Twilio WhatsApp API</span>
+      <span class="pill">GPT / Claude / Groq</span>
+      <span class="pill">Google Calendar</span>
+      <span class="pill">Google Sheets</span>
+      <span class="pill">LangGraph</span>
+    </div>
+  </div>
+
+  <!-- ============ PACKAGES ============ -->
+  <div class="section">
+    <div class="section-label">Packages on Fiverr</div>
+    <h2>Three ways to start</h2>
+    <p class="lead-p">Pick the one that fits. You can always upgrade later.</p>
+    <table class="pkg-table">
+      <tr>
+        <th></th>
+        <th>BASIC</th>
+        <th>STANDARD</th>
+        <th>PREMIUM</th>
+      </tr>
+      <tr>
+        <th>Name</th>
+        <td>WhatsApp FAQ Bot</td>
+        <td>AI Lead Gen Agent</td>
+        <td>Custom Sales AI Agent</td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td>Custom GPT FAQ bot with WhatsApp / Twilio setup, up to 20 Q&amp;As, source code included.</td>
+        <td>Lead qualification, calendar booking, Google Sheets CRM logging, 50 Q&amp;As.</td>
+        <td>Full sales agent with multi-language, human handoff, analytics dashboard, 30-day support.</td>
+      </tr>
+      <tr>
+        <th>Delivery</th>
+        <td>3 days</td>
+        <td>5 days</td>
+        <td>7 days</td>
+      </tr>
+      <tr>
+        <th>AI model integration</th>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <th>Database integration</th>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <th>Source code included</th>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <th>Detailed code comments</th>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <th>Revisions</th>
+        <td>2</td>
+        <td>3</td>
+        <td>Unlimited</td>
+      </tr>
+      <tr>
+        <th>Price</th>
+        <td class="amt">INR 8,946 / $90</td>
+        <td class="amt">INR 21,867 / $180</td>
+        <td class="amt">INR 44,727 / $360</td>
+      </tr>
+    </table>
+    <p class="pkg-note">All prices in Indian Rupees and USD. Extra fast delivery, database integration, and additional revisions available as add-ons on Fiverr.</p>
+  </div>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <div class="section">
+    <div class="section-label">How It Works</div>
+    <h2>How we get it live</h2>
+    <p class="lead-p">Four steps. You do almost nothing.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>15-min call</h4><p>I see how your business runs today and where the leads are slipping through.</p></div>
+      <div class="step"><div class="n">2</div><h4>Day 1 to 3</h4><p>I connect the agent to your WhatsApp, calendar, and a Google Sheet where every lead is logged.</p></div>
+      <div class="step"><div class="n">3</div><h4>Day 3 to 5</h4><p>I teach the agent your FAQs, your tone, your prices. You read sample replies and tell me what to fix.</p></div>
+      <div class="step"><div class="n">4</div><h4>Day 5</h4><p>It goes live. Real customers start talking to it. I watch for the first week and adjust anything off.</p></div>
+    </div>
+  </div>
+
+  <!-- ============ FAQ ============ -->
+  <div class="section">
+    <div class="section-label">Questions People Ask</div>
+    <h2>Before you order</h2>
+    <ul class="faq">
+      <li><b>Do I need a Twilio account?</b><br>No, I will help you set one up. Twilio costs about $0.005 per message on the WhatsApp API.</li>
+      <li><b>Will this work with my existing WhatsApp Business number?</b><br>Yes, with a short Meta approval process (1-3 days). I will walk you through it.</li>
+      <li><b>What if the agent cannot answer a question?</b><br>It hands off to a human (you) automatically and tells the customer you will reply shortly.</li>
+      <li><b>Do I own the agent after delivery?</b><br>Yes. You get the source code and everything you need to run it on your own setup.</li>
+    </ul>
+  </div>
+
+  <!-- ============ YELLOW BAND CTA ============ -->
+  <div class="band">
+    <div class="who">
+      <b>Ayush Aryan</b><br>
+      <a href="https://my-portfolio-mu-one-lrl6812mpq.vercel.app/" target="_blank">my-portfolio-mu-one-lrl6812mpq.vercel.app</a>
+    </div>
+    <a class="fiverr-btn" href="https://www.fiverr.com/arya17_excel/build-an-ai-whatsapp-agent-for-your-business-that-converts-leads-24-7" target="_blank" rel="noopener">
+      <i class="fa-solid fa-arrow-up-right-from-square"></i> Hire me on Fiverr
+    </a>
+  </div>
+
+</div></body>
+</html>
